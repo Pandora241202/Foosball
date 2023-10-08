@@ -8,16 +8,23 @@
 
 const int BALL_RADIUS = 8;
 
+enum gameState {MENU, END, PLAYWITHBOT, PLAYWITHPERSON};
+
 class Game {
 public:
+	int state = MENU;
 	Game();
 	~Game();
 
-	void start(const char* title, int w, int h);
+	void init(const char* title, int w, int h);
+	void start();
 	void handleEvents();
 	void update();
 	void render();
 	void clean();
+	void checkGameEnd();
+	void renderEndScreen();
+	void renderMenuScreen();
 
 	bool running();
 

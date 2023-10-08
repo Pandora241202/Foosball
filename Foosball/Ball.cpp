@@ -5,7 +5,7 @@ int sqr(int x) {
 	return x * x;
 }
 
-Vector2D* playerKickV = new Vector2D(3, 0);
+Vector2D* playerKickV = new Vector2D(1, 0);
 
 Ball::Ball(SDL_Renderer* rend) {
 	renderer = rend;
@@ -28,8 +28,8 @@ void Ball::Move() {
 		dstRect.y += v->y;
 		return;
 	}
-	dstRect.x = dstRect.x + v->x - 100 < 0 ? 100 : 900 - dstRect.x - v->x < BALL_RADIUS * 2 ? 878 : dstRect.x + v->x;
-	dstRect.y = dstRect.y + v->y - 100 < 0 ? 100 : 500 - dstRect.y - v->y < BALL_RADIUS * 2 ? 478 : dstRect.y + v->y;
+	dstRect.x = dstRect.x + v->x - 100 < 0 ? 100 : 900 - dstRect.x - v->x < BALL_RADIUS * 2 ? 900 - BALL_RADIUS * 2 : dstRect.x + v->x;
+	dstRect.y = dstRect.y + v->y - 100 < 0 ? 100 : 500 - dstRect.y - v->y < BALL_RADIUS * 2 ? 500 - BALL_RADIUS * 2 : dstRect.y + v->y;
 }
 
 int Ball::TouchBar() {

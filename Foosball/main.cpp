@@ -11,14 +11,23 @@ int main(int argc, char* argv[]) {
 
 	game = new Game();
 	
-	game->start("Foosball", 1000, 600);
+	game->init("Foosball", 1000, 600);
 
 	while (game->running()) {
 		frameStart = SDL_GetTicks();
 
 		game->handleEvents();
-		game->update();
-		game->render();
+
+		if (game->state == PLAYWITHBOT || game->state == PLAYWITHPERSON) {
+			game->checkGameEnd();
+			game->update();
+		}
+		if (game->state == MENU) {
+			game->renderMenuScreen();
+		}
+		else {
+			game->render();
+		}
 
 		frameTime = SDL_GetTicks() - frameStart;
 		if (frameDelay > frameTime) {
