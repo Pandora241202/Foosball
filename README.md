@@ -8,5 +8,4 @@
   - Player use UP and DOWN key to move poles
 
 # Addition:
-- Pause game: P
 - Exit to menu: Esc
