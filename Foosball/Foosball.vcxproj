@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Pandora\Repo\Game Dev\SDL\SDL2_image-2.6.3\include;D:\Pandora\Repo\Game Dev\SDL\SDL2-2.28.3\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Pandora\Repo\Game Dev\SDL\SDL2_image-2.6.3\lib\x64;D:\Pandora\Repo\Game Dev\SDL\SDL2-2.28.3\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Pandora\Repo\Game Dev\SDL\SDL2_image-2.6.3\include;D:\Pandora\Repo\Game Dev\SDL\SDL2-2.28.3\include;D:\Pandora\Repo\Game Dev\SDL\SDL2_ttf-2.20.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Pandora\Repo\Game Dev\SDL\SDL2_ttf-2.20.2\lib\x64;D:\Pandora\Repo\Game Dev\SDL\SDL2_image-2.6.3\lib\x64;D:\Pandora\Repo\Game Dev\SDL\SDL2-2.28.3\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,13 +108,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Pandora\Repo\Game Dev\SDL\SDL2_image-2.6.3\include;D:\Pandora\Repo\Game Dev\SDL\SDL2-2.28.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Pandora\Repo\Game Dev\SDL\SDL2_image-2.6.3\include;D:\Pandora\Repo\Game Dev\SDL\SDL2-2.28.3\include;D:\Pandora\Repo\Game Dev\SDL\SDL2_ttf-2.20.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Pandora\Repo\Game Dev\SDL\SDL2_image-2.6.3\lib\x64;D:\Pandora\Repo\Game Dev\SDL\SDL2-2.28.3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Pandora\Repo\Game Dev\SDL\SDL2_image-2.6.3\lib\x64;D:\Pandora\Repo\Game Dev\SDL\SDL2-2.28.3\lib\x64;D:\Pandora\Repo\Game Dev\SDL\SDL2_ttf-2.20.2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2_ttf.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,6 +140,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerPole.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Team.cpp" />
     <ClCompile Include="TextureManger.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Yard.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="PlayerPole.hpp" />
+    <ClInclude Include="Team.hpp" />
     <ClInclude Include="Vector2D.hpp" />
     <ClInclude Include="TextureManager.hpp" />
     <ClInclude Include="Yard.hpp" />

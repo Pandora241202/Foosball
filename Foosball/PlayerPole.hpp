@@ -28,10 +28,9 @@ public:
 	PlayerPole(SDL_Renderer* rend, bool isRedTeam, int posYard, int numOfPlayers);
 	~PlayerPole();
 
+	Player** GetPlayers();
+	int GetPlayersNum();
 	void Move(int distance);
-	void KickRight();
-	void KickLeft();
-	void Normal();
 
 	void Render();
 };

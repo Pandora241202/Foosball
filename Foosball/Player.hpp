@@ -11,23 +11,30 @@ enum posOnPole {
 	POS4ONPOLE = 440,
 };
 
-enum playerState {NORMAL, KICKRIGHT, KICKLEFT};
+enum playerAction {
+	NORMAL, KICKRIGHT, KICKLEFT, RIGHT2LEFT, LEFT2RIGHT
+};
 
 class Player {
 private:
 	SDL_Texture* playerTexture;
 	SDL_Rect dstRect;
 	SDL_Renderer* renderer;
-	playerState state;
+	int posPoleOnYard;
+	bool inRedTeam;
+	int action;
+	int actionSteps;
 
 public:
 	Player(SDL_Renderer* rend, int posPole, int posYard, bool isRedTeam);
 	~Player();
 
 	void Move(int distance);
-	void KickRight(bool isRedTeam, int posYard);
-	void KickLeft(bool isRedTeam, int posYard);
-	void Normal(bool isRedTeam, int posYard);
+	void KickRight();
+	void KickLeft();
+	void Normal();
+	void SetAction(int act);
+	SDL_Rect GetRect();
 
 	void Render();
 };

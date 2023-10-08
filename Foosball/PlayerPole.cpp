@@ -49,6 +49,14 @@ PlayerPole::PlayerPole(SDL_Renderer* rend, bool isRedTeam, int posYard, int numO
 
 PlayerPole::~PlayerPole() {}
 
+Player** PlayerPole::GetPlayers() {
+	return players;
+}
+
+int PlayerPole::GetPlayersNum() {
+	return playersNum;
+}
+
 void PlayerPole::Move(int distance) {
 	if (distance == 0) {
 		return;
@@ -67,24 +75,6 @@ void PlayerPole::Move(int distance) {
 
 	for (int i = 0; i < playersNum; i++) {
 		players[i]->Move(playerMoveDistance);
-	}
-}
-
-void PlayerPole::KickLeft() {
-	for (int i = 0; i < playersNum; i++) {
-		players[i]->KickLeft(inRedTeam, dstRect.x);
-	}
-}
-
-void PlayerPole::KickRight() {
-	for (int i = 0; i < playersNum; i++) {
-		players[i]->KickRight(inRedTeam, dstRect.x);
-	}
-}
-
-void PlayerPole::Normal() {
-	for (int i = 0; i < playersNum; i++) {
-		players[i]->Normal(inRedTeam, dstRect.x);
 	}
 }
 

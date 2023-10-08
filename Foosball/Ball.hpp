@@ -3,8 +3,9 @@
 
 #include "Game.hpp"
 #include "Vector2D.hpp"
+#include "Team.hpp"
 
-enum posOfBar { UPBAR, DOWNBAR, LEFTBAR, RIGHTBAR };
+enum touchPos { UP, DOWN, LEFT, RIGHT };
 
 class Ball {
 private:
@@ -19,9 +20,11 @@ public:
 
 	void Move();
 	int TouchBar();
-	void ChangeDirectWhenTouchBar(int pos);
+	void CheckCollideBar();
 	bool InRedTeamGoal();
 	bool InBlueTeamGoal();
+	bool TouchPlayer(Player* player);
+	void CheckCollidePlayerInTeam(Team *team);
 	void Render();
 };
 
