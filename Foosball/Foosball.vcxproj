@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="BlockBars.cpp" />
+    <ClCompile Include="Bot.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerPole.cpp" />
@@ -148,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Ball.hpp" />
     <ClInclude Include="BlockBars.hpp" />
+    <ClInclude Include="Bot.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="PlayerPole.hpp" />

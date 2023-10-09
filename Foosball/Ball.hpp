@@ -25,6 +25,9 @@ public:
 	bool InBlueTeamGoal();
 	bool TouchPlayer(Player* player);
 	void CheckCollidePlayerInTeam(Team *team);
+	int GetCenterX();
+	int GetCenterY();
+
 	void Render();
 };
 

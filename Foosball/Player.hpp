@@ -35,6 +35,7 @@ public:
 	void Normal();
 	void SetAction(int act);
 	SDL_Rect GetRect();
+	int CountSqrDistance(int ballX, int ballY);
 
 	void Render();
 };

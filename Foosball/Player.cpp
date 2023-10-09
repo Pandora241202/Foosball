@@ -50,6 +50,10 @@ SDL_Rect Player::GetRect() {
 	return dstRect;
 }
 
+int Player::CountSqrDistance(int ballX, int ballY) {
+	return (dstRect.x + 8 - ballX) * (dstRect.x + 8 - ballX) + (dstRect.y + 15 - ballY) * (dstRect.y + 15 - ballY);
+}
+
 void Player::SetAction(int act) {
 	action = act;
 	switch (act) {

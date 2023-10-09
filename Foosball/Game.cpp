@@ -4,7 +4,7 @@
 #include "BlockBars.hpp"
 #include "Team.hpp"
 #include "Ball.hpp"
-
+#include "Bot.hpp"
 
 Game::Game() {}
 
@@ -14,6 +14,7 @@ Yard *yard;
 BlockBars *bars;
 Team *blueTeam, *redTeam;
 Ball *ball;
+Bot* bot;
 
 SDL_Rect popupRect, blurRect;
 SDL_Color red = { 126, 0, 21 }, blue = { 63, 72, 204 };
@@ -31,8 +32,6 @@ SDL_Texture *winTexture;
 // Menu
 SDL_Rect menuTextureRect;
 SDL_Texture* menuTexture;
-
-const int MOVE_DISTANCE = 7;
 
 void Game::init(const char* title, int w, int h) {	
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0 || !font) run = false;
@@ -73,9 +72,12 @@ void Game::start() {
 	if (blueTeam) blueTeam->~Team();
 	if (redTeam) redTeam->~Team();
 	if (ball) ball->~Ball();
+	if (bot) bot->~Bot();
 
 	blueTeam = new Team(renderer, true);
 	redTeam = new Team(renderer, false);
+
+	if (state == PLAYWITHBOT) bot = new Bot(redTeam);
 
 	ball = new Ball(renderer);
 
@@ -118,16 +120,16 @@ void Game::handleEvents() {
 		if (event.type == SDL_KEYDOWN) {
 			switch (event.key.keysym.sym) {
 			case SDLK_UP:
-				redTeam->Move(-MOVE_DISTANCE);
+				redTeam->Move(-MOVE_STEP);
 				break;
 			case SDLK_DOWN:
-				redTeam->Move(MOVE_DISTANCE);
+				redTeam->Move(MOVE_STEP);
 				break;
 			case SDLK_w:
-				blueTeam->Move(-MOVE_DISTANCE);
+				blueTeam->Move(-MOVE_STEP);
 				break;
 			case SDLK_s:
-				blueTeam->Move(MOVE_DISTANCE);
+				blueTeam->Move(MOVE_STEP);
 				break;
 			}
 		}
@@ -136,10 +138,10 @@ void Game::handleEvents() {
 		if (event.type == SDL_KEYDOWN) {
 			switch (event.key.keysym.sym) {
 			case SDLK_UP:
-				blueTeam->Move(-MOVE_DISTANCE);
+				blueTeam->Move(-MOVE_STEP);
 				break;
 			case SDLK_DOWN:
-				blueTeam->Move(MOVE_DISTANCE);
+				blueTeam->Move(MOVE_STEP);
 				break;
 			}
 		}
@@ -160,6 +162,11 @@ void Game::update() {
 		ball->~Ball();
 		ball = new Ball(renderer);
 		return;
+	}
+
+	if (state == PLAYWITHBOT) {
+		bot->UpdateWill(ball->GetCenterX(), ball->GetCenterY());
+		bot->MovePole();
 	}
 
 	ball->CheckCollideBar();

@@ -7,6 +7,7 @@
 #include <iostream>
 
 const int BALL_RADIUS = 8;
+const int MOVE_STEP = 7;
 
 enum gameState {MENU, END, PLAYWITHBOT, PLAYWITHPERSON};
 

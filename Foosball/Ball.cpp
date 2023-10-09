@@ -154,6 +154,14 @@ void Ball::CheckCollidePlayerInTeam(Team* team) {
 	}
 }
 
+int Ball::GetCenterX() {
+	return dstRect.x + BALL_RADIUS;
+}
+
+int Ball::GetCenterY() {
+	return dstRect.y + BALL_RADIUS;
+}
+
 void Ball::Render() {
 	SDL_RenderCopy(renderer, ballTexture, NULL, &dstRect);
 }
