@@ -3,7 +3,7 @@
 Bot::Bot(Team* team) {
 	controlTeam = team;
 	needMoveDistance = 0;
-	needRecount = FRAMERECOUNT;
+	needRecount = FRAMEBOTRECOUNT;
 }
 
 Bot::~Bot() {}
@@ -16,7 +16,7 @@ void Bot::MovePole() {
 	if (needMoveDistance == 0) return;
 	controlTeam->Move(needMoveDistance > 0 ? MOVE_STEP : -MOVE_STEP);
 	needMoveDistance -= needMoveDistance > 0 ? MOVE_STEP : -MOVE_STEP;
-	needRecount = FRAMERECOUNT;
+	needRecount = FRAMEBOTRECOUNT;
 }
 
 void Bot::UpdateWill(int ballX, int ballY) {

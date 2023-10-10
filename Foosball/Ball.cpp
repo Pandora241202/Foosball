@@ -18,11 +18,21 @@ Ball::Ball(SDL_Renderer* rend) {
 	dstRect.h = BALL_RADIUS * 2;
 
 	v = new Vector2D(1, 3);
+
+	needRecount = FRAMEDECRESESPEED;
 }
 
 Ball::~Ball() {}
 
 void Ball::Move() {
+	if (needRecount == 0) {
+		v->x = v->x * 4 / 5;
+		v->y = v->y * 4 / 5;
+		needRecount = FRAMEDECRESESPEED;
+	} else {
+		needRecount -= 1;
+	}
+
 	if (dstRect.y + v->y >= 216 && dstRect.y + v->y + BALL_RADIUS * 2 <= 384) {
 		dstRect.x += v->x;
 		dstRect.y += v->y;

@@ -5,7 +5,7 @@
 #include "Vector2D.hpp"
 #include "Team.hpp"
 
-const int FRAMERECOUNT = 5;
+const int FRAMEBOTRECOUNT = 5;
 
 class Bot {
 private:
